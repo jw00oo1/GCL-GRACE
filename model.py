@@ -21,7 +21,7 @@ class Encoder(nn.Module):
         
         conv_list = [GCNConv(in_channels,2*out_channels)]
         for _ in range(k-2):
-            conv_list.append(GCNConv(in_channels,2*out_channels))
+            conv_list.append(GCNConv(2*out_channels,2*out_channels))
         conv_list.append(GCNConv(2*out_channels, out_channels))
         self.conv_list = nn.ModuleList(conv_list)
         
